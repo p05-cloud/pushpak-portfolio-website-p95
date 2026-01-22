@@ -1724,21 +1724,6 @@
     });
   }
 
-  function copyPhone() {
-    const phone = '+91 8655850932';
-    navigator.clipboard.writeText(phone).then(() => {
-      const btns = document.querySelectorAll('.copy-btn');
-      const btn = btns[1];
-      btn.dataset.original = 'Copy Phone';
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = 'Copy Phone';
-        btn.classList.remove('copied');
-      }, 2000);
-    });
-  }
-
   // Close modal when clicking outside
   document.getElementById('contactModal').addEventListener('click', function(e) {
     if (e.target === this) {
@@ -1803,3 +1788,4 @@
 </body>
 
 </html>
+
