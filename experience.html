@@ -496,6 +496,36 @@ body {
     box-shadow: 0 8px 25px rgba(255, 0, 255, 0.5);
 }
 
+/* Projects Showcase */
+.projects-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-entry {
+    padding: 18px 20px;
+    border-left: 3px solid rgba(0, 255, 255, 0.2);
+    background: rgba(0, 255, 255, 0.02);
+    border-radius: 0 12px 12px 0;
+    transition: all 0.3s ease;
+}
+
+.project-entry:hover {
+    border-left-color: #00ffff;
+    background: rgba(0, 255, 255, 0.05);
+    padding-left: 25px;
+}
+
+.project-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .navbar {
@@ -705,6 +735,17 @@ body {
   
   <h2 class="section-title">Experience</h2>
 
+  <!-- Career Journey Narrative -->
+  <div class="glass-card" style="margin-bottom: 35px; border-left: 4px solid #00ffff;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+      <i class="fas fa-route" style="color: #00ffff; font-size: 1.5rem;"></i>
+      <h3 style="font-size: 1.2rem; color: #00ffff; margin: 0;">The Journey</h3>
+    </div>
+    <p style="color: #bbb; line-height: 1.8; font-size: 0.95rem; margin: 0;">
+      Started working part-time at Decathlon while still pursuing my B.Sc — learning discipline, hustle, and client-facing skills early on. At 21, I founded <span class="highlight">Elite Educare Academy</span>, building a team of 20 instructors and training 350+ students. That entrepreneurial grit — managing teams, designing curriculum, and communicating complex ideas — became the foundation for everything that followed. In 2022, I entered cloud engineering and progressed from <span class="highlight">Associate to Cloud Solution Architect in under 3 years</span>, delivering mission-critical cloud platforms for some of India's largest BFSI institutions.
+    </p>
+  </div>
+
   <!-- APPLIED CLOUD COMPUTING -->
   <div class="experience-card glass-card">
     <div class="company-header">
@@ -721,7 +762,7 @@ body {
     <div class="role-block">
       <div class="role-header">
         <h3 class="role-title">Cloud Solution Architect</h3>
-        <span class="role-duration"><i class="far fa-calendar-alt"></i> Jun 2025 – Present</span>
+        <span class="role-duration"><i class="far fa-calendar-alt"></i> Mar 2025 – Present</span>
       </div>
       <ul class="responsibilities">
         <li>Architect cloud platforms for <span class="highlight">BFSI and enterprise clients</span>, aligning business goals with secure, scalable cloud designs</li>
@@ -756,9 +797,11 @@ body {
         <span class="role-duration"><i class="far fa-calendar-alt"></i> Apr 2023 – Mar 2024</span>
       </div>
       <ul class="responsibilities">
-        <li>Built and maintained CI/CD pipelines using Jenkins and Git-based workflows</li>
-        <li>Automated infrastructure provisioning and security controls</li>
-        <li>Supported production environments with a strong focus on security and reliability</li>
+        <li>Built and maintained CI/CD pipelines using Jenkins, GitHub Actions, and Git-based workflows</li>
+        <li>Automated infrastructure provisioning and security controls using Terraform and CloudFormation</li>
+        <li>Led containerisation efforts and supported EKS/Docker deployments for client workloads</li>
+        <li>Supported production environments with strong focus on security, reliability, and compliance</li>
+        <li>Earned AWS Cloud Practitioner and Solutions Architect certifications during this period</li>
       </ul>
     </div>
 
@@ -769,8 +812,10 @@ body {
         <span class="role-duration"><i class="far fa-calendar-alt"></i> Apr 2022 – Mar 2023</span>
       </div>
       <ul class="responsibilities">
-        <li>Implemented cloud infrastructure using AWS core services</li>
-        <li>Supported cloud migrations, automation scripts, and infrastructure optimization</li>
+        <li>Managed day-to-day AWS infrastructure operations for BFSI client environments</li>
+        <li>Executed cloud migrations, automated provisioning using CloudFormation and shell scripting</li>
+        <li>Implemented monitoring dashboards using CloudWatch and contributed to cost visibility initiatives</li>
+        <li>Supported production incident resolution with 24×7 on-call responsibilities</li>
       </ul>
     </div>
 
@@ -781,7 +826,9 @@ body {
         <span class="role-duration"><i class="far fa-calendar-alt"></i> Mar 2022 – Apr 2022</span>
       </div>
       <ul class="responsibilities">
-        <li>Worked on foundational AWS architecture, Linux systems, and automation basics</li>
+        <li>Onboarded into enterprise cloud operations supporting production AWS environments</li>
+        <li>Built foundational skills in Linux administration, networking, and AWS core services</li>
+        <li>Participated in infrastructure monitoring and alert management for BFSI clients</li>
       </ul>
     </div>
 
@@ -794,6 +841,167 @@ body {
       <span class="skill-tag">Terraform</span>
       <span class="skill-tag">Security & Compliance</span>
       <span class="skill-tag">DR Planning</span>
+    </div>
+  </div>
+
+  <!-- KEY ENTERPRISE PROJECTS -->
+  <div class="experience-card glass-card" style="margin-top: 10px;">
+    <div class="company-header">
+      <div class="company-icon">
+        <i class="fas fa-project-diagram"></i>
+      </div>
+      <div class="company-info">
+        <h2>Key Enterprise Projects</h2>
+        <span class="location"><i class="fas fa-briefcase"></i> Delivered at Applied Cloud Computing</span>
+      </div>
+    </div>
+
+    <div class="projects-showcase">
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">Bandhan Bank — AIOps & Security Automation</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Architecture & AIOps</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Implemented an <span class="highlight">AIOps platform</span> with ML-based anomaly detection and AI-powered root cause analysis</li>
+          <li>Built intelligent incident response with auto-remediation using AI agents and Lambda workflows</li>
+          <li><strong>Result:</strong> Incident response reduced from hours to minutes | 100% audit readiness | Zero critical findings</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">ATLAS — AI-Powered Automated DR Orchestration</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Disaster Recovery</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Designed a fully automated DR solution with <span class="highlight">AI-driven health monitoring</span> and intelligent failover/failback using Lambda State Machines</li>
+          <li><strong>Result:</strong> Zero-touch failover with RTO under 10 minutes | DR testing time reduced from 8 hours to 30 minutes</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">RBL Bank — Cross-Cloud Migration (Azure to AWS)</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Migration</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Led migration of <span class="highlight">GitHub Enterprise Server from Azure to AWS</span>, including version upgrade and optimal infrastructure design</li>
+          <li><strong>Result:</strong> Zero data loss | 45% performance improvement | 30% cost reduction vs Azure</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">SBIGIC — Enterprise Cloud Migration & Network Design</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Migration & Security</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Led end-to-end AWS migration for insurance workloads with <span class="highlight">multi-AZ VPC, Direct Connect/VPN hybrid connectivity</span>, and layered security</li>
+          <li><strong>Result:</strong> 100+ servers migrated with 99.95% uptime | Production stability in 2 weeks | MTTR reduced by 35%</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">HDBFS — Compliance Automation & Cost Optimisation</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Compliance & FinOps</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Built automated compliance monitoring using Config Rules and Security Hub for <span class="highlight">PCI DSS/CIS alignment</span></li>
+          <li>Implemented cost optimisation framework using Lambda/Step Functions for resource scheduling and rightsizing</li>
+          <li><strong>Result:</strong> 100% compliance score | 60% cost reduction | 95% manual effort saved in weekly reporting</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">Edelweiss — Microservices Migration & Modernisation</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Modernisation</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Rearchitected legacy monolithic applications to <span class="highlight">cloud-native microservices on EKS/Fargate</span></li>
+          <li>Built hybrid connectivity with Transit Gateway and automated deployments via CI/CD pipelines</li>
+          <li><strong>Result:</strong> 50+ applications migrated | 35% cost reduction | Monthly to daily deployment frequency</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">TMF — EKS Performance Optimisation</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Kubernetes</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Diagnosed and resolved critical memory leaks through container profiling and fixed API throttling</li>
+          <li>Implemented <span class="highlight">HPA/VPA with optimised resource limits</span></li>
+          <li><strong>Result:</strong> 98% reduction in OOMKilled restarts | Deployment success: 60% → 99.5% | 99.95% cluster uptime</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">APAC — Multi-Region DR & Database Migration</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> DR & Migration</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Architected <span class="highlight">cross-region DR with automated replication</span> and migrated Oracle/MySQL to RDS Multi-AZ</li>
+          <li><strong>Result:</strong> RTO 15 min, RPO 5 min | 100% DR drill success rate | 60% reduction in DB admin overhead</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">Zuno General Insurance</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Platform Reliability</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Sustained ownership of <span class="highlight">mission-critical BFSI production environment</span></li>
+          <li>Ensured high-availability, compliance, and operational continuity for insurance platform workloads</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">ICICI Securities</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Enterprise Cloud</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Supported enterprise cloud infrastructure and security operations for financial services workloads</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">Axis Finance Limited (AFL)</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Cloud Infrastructure</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Delivered cloud infrastructure solutions and operational support for financial services client</li>
+        </ul>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-entry-header">
+          <h3 class="role-title">HDFC</h3>
+          <span class="role-duration"><i class="fas fa-tag"></i> Banking Cloud</span>
+        </div>
+        <ul class="responsibilities">
+          <li>Contributed to cloud operations and infrastructure management for banking workloads</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skills-tags">
+      <span class="skill-tag">BFSI</span>
+      <span class="skill-tag">AWS</span>
+      <span class="skill-tag">Azure</span>
+      <span class="skill-tag">EKS</span>
+      <span class="skill-tag">Terraform</span>
+      <span class="skill-tag">DR & HA</span>
+      <span class="skill-tag">PCI DSS</span>
+      <span class="skill-tag">AIOps</span>
+      <span class="skill-tag">FinOps</span>
+      <span class="skill-tag">Migration</span>
     </div>
   </div>
 
@@ -815,10 +1023,11 @@ body {
         <span class="role-duration"><i class="far fa-calendar-alt"></i> Mar 2015 – Mar 2022</span>
       </div>
       <ul class="responsibilities">
-        <li>Founded and scaled an education platform with a team of <span class="highlight">20 instructors</span></li>
-        <li>Mentored <span class="highlight">350+ students</span> across mathematics, physics, cloud computing, and security</li>
-        <li>Designed curriculum and training programs tailored to evolving industry needs</li>
-        <li>Developed strong leadership, communication, and technical mentorship capabilities</li>
+        <li>Founded and scaled an education business from scratch at age 21, growing to <span class="highlight">20 instructors across the city</span></li>
+        <li>Mentored <span class="highlight">350+ students</span> across mathematics, physics, cloud computing, security, Linux, and networking</li>
+        <li>Transitioned curriculum from traditional subjects to cloud technologies, reflecting industry evolution</li>
+        <li>Developed strong leadership, cross-team management, and the ability to <span class="highlight">communicate complex concepts simply</span></li>
+        <li>This entrepreneurial experience laid the foundation for leading cross-functional teams in enterprise cloud roles</li>
       </ul>
     </div>
 
@@ -848,8 +1057,10 @@ body {
         <span class="role-duration"><i class="far fa-calendar-alt"></i> Mar 2012 – Apr 2014</span>
       </div>
       <ul class="responsibilities">
-        <li>Developed client-facing communication and sales management skills</li>
-        <li>Gained hands-on experience in stakeholder engagement and customer operations</li>
+        <li>Worked part-time during B.Sc studies, developing <span class="highlight">discipline, time management, and professional communication</span> at an early stage</li>
+        <li>Developed client-facing communication and sales management skills in a fast-paced retail environment</li>
+        <li>Gained hands-on experience in stakeholder engagement, inventory management, and customer operations</li>
+        <li>Built a strong work ethic and resilience that later translated into managing high-stakes cloud environments</li>
       </ul>
     </div>
 
