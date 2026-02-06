@@ -493,6 +493,60 @@
       background-clip: text;
     }
     
+    /* Card Divider */
+    .card-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,255,255,0.3), transparent);
+      margin: 1.2rem 0;
+    }
+
+    /* Card Highlights - Executive Value Props */
+    .card-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .card-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      color: #ccc;
+      font-weight: 500;
+    }
+
+    .card-highlight-item i {
+      color: #00ff88;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    /* Certification Badge Strip */
+    .cert-strip {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .cert-strip img {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,255,255,0.2);
+      padding: 3px;
+      background: rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+      object-fit: contain;
+    }
+
+    .cert-strip img:hover {
+      transform: scale(1.15);
+      border-color: #00ffff;
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
+    }
+
     /* CTA Group - Now inside hero-right */
     .card-cta-group { 
       display: flex; 
@@ -1549,9 +1603,18 @@
         border-radius: 15px; 
       }
       
-      .card-title { 
-        font-size: 0.75rem; 
-        margin-bottom: 1.5rem; 
+      .card-title {
+        font-size: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .cert-strip img {
+        width: 38px;
+        height: 38px;
+      }
+
+      .card-highlight-item {
+        font-size: 0.75rem;
       }
       
       .metric { 
@@ -1811,26 +1874,34 @@
       <!-- Right Column -->
       <div class="hero-right">
         <div class="profile-card">
-          <div class="card-title">⚡ PROFILE SNAPSHOT</div>
-        
+          <div class="card-title">⚡ EXECUTIVE BRIEF</div>
+
           <div class="metric">
             <div class="metric-label">Current Role</div>
             <div class="metric-value">Cloud Solution Architect</div>
           </div>
-        
+
           <div class="metric">
-            <div class="metric-label">Core Focus</div>
-            <div class="metric-value">AWS, Azure & Vault</div>
+            <div class="metric-label">Domain</div>
+            <div class="metric-value">BFSI & Enterprise</div>
           </div>
-        
-          <div class="metric">
-            <div class="metric-label">Specialization</div>
-            <div class="metric-value">BFSI Cloud & Security</div>
+
+          <div class="card-divider"></div>
+
+          <div class="card-highlights">
+            <div class="card-highlight-item"><i class="fas fa-check"></i> Up to 60% cloud cost reduction</div>
+            <div class="card-highlight-item"><i class="fas fa-check"></i> Zero-downtime migrations</div>
+            <div class="card-highlight-item"><i class="fas fa-check"></i> 100% compliance (PCI DSS, CIS)</div>
+            <div class="card-highlight-item"><i class="fas fa-check"></i> AI-powered DR &amp; AIOps</div>
           </div>
-          
-          <div class="metric">
-            <div class="metric-label">Additional Strength</div>
-            <div class="metric-value">Team Enablement</div>
+
+          <div class="card-divider"></div>
+
+          <div class="cert-strip">
+            <img src="images/saa2.png" alt="AWS Solutions Architect" title="AWS Solutions Architect – Associate">
+            <img src="images/aws-security-specialty.png" alt="AWS Security Specialty" title="AWS Security – Specialty">
+            <img src="images/IBM-vault-practitioner-advanced.png" alt="IBM Vault Advanced" title="IBM Vault Automation – Practitioner Advanced">
+            <img src="images/ccp.png" alt="AWS Cloud Practitioner" title="AWS Cloud Practitioner">
           </div>
         </div>
         
