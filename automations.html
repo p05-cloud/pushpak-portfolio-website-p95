@@ -690,7 +690,7 @@ body {
   <p>Production-grade AWS automation solutions built for enterprise clients. Multi-account architectures, serverless workflows, and Infrastructure as Code.</p>
   <div class="hero-stats">
     <div class="stat-item">
-      <div class="stat-number">14+</div>
+      <div class="stat-number">16+</div>
       <div class="stat-label">Automations</div>
     </div>
     <div class="stat-item">
@@ -876,6 +876,34 @@ body {
       </div>
     </div>
 
+    <!-- AWS Idle Resource Cleanup Automation (Coming Soon) -->
+    <div class="automation-card coming-soon fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-trash-alt"></i></div>
+        <h3 class="card-title">AWS Idle Resource Cleanup Automation</h3>
+      </div>
+      <p class="card-description">Serverless tool that identifies and automatically terminates/stops idle EC2 instances, unattached EBS volumes, unused Elastic IPs, and orphaned snapshots across multi-account environments. Uses Lambda + EventBridge + Cost Explorer APIs with Slack/Teams notifications before cleanup.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Planned Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Multi-Account Support</span>
+          <span class="impact-item">Idle Detection Logic</span>
+          <span class="impact-item">Slack/Teams Alerts</span>
+          <span class="impact-item">Dry-Run Preview</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">EventBridge</span>
+        <span class="tech-tag">Cost Explorer</span>
+        <span class="tech-tag">Slack/Teams API</span>
+        <span class="tech-tag">Terraform</span>
+      </div>
+      <div class="card-actions">
+        <span class="badge-coming">Coming Soon</span>
+      </div>
+    </div>
+
   </div>
 
   <!-- Section 3: Security & Compliance -->
@@ -1058,6 +1086,34 @@ body {
         <a href="https://github.com/p05-cloud/aws-cw-alarm-factory" target="_blank" class="card-link secondary">
           <i class="fas fa-code-branch"></i> Alt Version
         </a>
+      </div>
+    </div>
+
+    <!-- Multi-Account Health Dashboard & Anomaly Detector (Coming Soon) -->
+    <div class="automation-card coming-soon fade-in">
+      <div class="card-header">
+        <div class="card-icon"><i class="fas fa-chart-area"></i></div>
+        <h3 class="card-title">Multi-Account Health Dashboard & Anomaly Detector</h3>
+      </div>
+      <p class="card-description">Real-time centralized health dashboard that aggregates CloudWatch metrics, AWS Health events, and Trusted Advisor checks across all accounts. Uses ML-based anomaly detection on metric patterns to predict incidents before they happen. Includes Slack/PagerDuty integration for intelligent alert routing.</p>
+      <div class="impact-box">
+        <div class="impact-label"><i class="fas fa-bolt"></i> Planned Features</div>
+        <div class="impact-items">
+          <span class="impact-item">Multi-Account Aggregation</span>
+          <span class="impact-item">ML Anomaly Detection</span>
+          <span class="impact-item">Real-Time Dashboard</span>
+          <span class="impact-item">PagerDuty Integration</span>
+        </div>
+      </div>
+      <div class="tech-stack">
+        <span class="tech-tag">CloudWatch</span>
+        <span class="tech-tag">Lambda</span>
+        <span class="tech-tag">SageMaker</span>
+        <span class="tech-tag">EventBridge</span>
+        <span class="tech-tag">SNS/SQS</span>
+      </div>
+      <div class="card-actions">
+        <span class="badge-coming">Coming Soon</span>
       </div>
     </div>
 
