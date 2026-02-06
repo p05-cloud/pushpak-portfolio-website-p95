@@ -554,7 +554,7 @@
     /* Quick Stats Section */
     .quick-stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -971,78 +971,155 @@
       box-shadow: 0 5px 25px rgba(0, 255, 255, 0.5);
     }
 
-    /* Testimonials Section */
-    .testimonials-section {
+    /* Enterprise Impact Section */
+    .impact-section {
       position: relative;
       z-index: 10;
       padding: 80px 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,15,30,0.4) 50%, rgba(0,0,0,0) 100%);
     }
 
-    .testimonials-grid {
+    .impact-numbers {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
 
-    .testimonial-card {
-      background: linear-gradient(135deg, rgba(0,30,60,0.3), rgba(30,0,60,0.3));
-      border: 1px solid rgba(0,255,255,0.2);
-      border-radius: 15px;
-      padding: 2rem;
+    .impact-stat {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: rgba(0,255,255,0.04);
+      border: 1px solid rgba(0,255,255,0.15);
+      border-radius: 12px;
       transition: all 0.3s ease;
-      position: relative;
     }
 
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(0,255,255,0.5);
-      box-shadow: 0 10px 40px rgba(0,255,255,0.15);
+    .impact-stat:hover {
+      border-color: rgba(0,255,255,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,255,255,0.12);
     }
 
-    .testimonial-quote {
-      color: rgba(0,255,255,0.3);
-      font-size: 2rem;
+    .impact-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .impact-desc {
+      font-size: 0.85rem;
+      color: #ccc;
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    .impact-context {
+      font-size: 0.7rem;
+      color: #666;
+      font-family: 'Fira Code', monospace;
+      margin-top: 0.4rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, rgba(0,30,60,0.3), rgba(30,0,60,0.2));
+      border: 1px solid rgba(0,255,255,0.15);
+      border-radius: 15px;
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: rgba(0,255,255,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,255,255,0.1);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-client {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: #00ffff;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .project-type {
+      font-size: 0.65rem;
+      padding: 0.25rem 0.6rem;
+      background: rgba(255,0,255,0.15);
+      border: 1px solid rgba(255,0,255,0.3);
+      border-radius: 20px;
+      color: #ff88ff;
+    }
+
+    .project-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: #999;
+      line-height: 1.6;
       margin-bottom: 1rem;
     }
 
-    .testimonial-text {
-      color: #bbb;
-      font-size: 0.95rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(0,255,255,0.15);
-    }
-
-    .author-avatar {
-      width: 45px;
-      height: 45px;
-      background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(255,0,255,0.2));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #00ffff;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    .author-name {
-      color: #00ffff;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .author-role {
-      color: #888;
+    .project-result {
       font-size: 0.8rem;
+      color: #00ff88;
+      font-family: 'Fira Code', monospace;
+      padding: 0.6rem 0.8rem;
+      background: rgba(0,255,136,0.06);
+      border-left: 3px solid #00ff88;
+      border-radius: 0 8px 8px 0;
+      line-height: 1.5;
+    }
+
+    .project-result i {
+      color: #00ffff;
+      margin-right: 0.3rem;
+    }
+
+    .impact-cta {
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: 1px solid rgba(0,255,255,0.3);
+      padding: 0.7rem 1.8rem;
+      border-radius: 999px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .impact-cta:hover {
+      background: rgba(0,255,255,0.1);
+      border-color: #00ffff;
+      transform: translateY(-2px);
     }
 
     /* ========== RESPONSIVE STYLES ========== */
@@ -1067,7 +1144,7 @@
       }
       
       .quick-stats {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
     }
 
@@ -1157,7 +1234,7 @@
       }
       
       .quick-stats {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 0.5rem;
       }
       
@@ -1173,11 +1250,20 @@
         font-size: 0.6rem;
       }
       
-      .testimonials-section {
+      .impact-section {
         padding: 60px 0;
       }
 
-      .testimonials-grid {
+      .impact-numbers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .impact-value {
+        font-size: 1.6rem;
+      }
+
+      .projects-grid {
         grid-template-columns: 1fr;
         gap: 1.2rem;
       }
@@ -1354,7 +1440,7 @@
       }
       
       .quick-stats {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 0.4rem;
       }
       
@@ -1615,12 +1701,16 @@
             <div class="stat-label">Years Exp</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">Mentored</div>
+            <div class="stat-number">8+</div>
+            <div class="stat-label">BFSI Projects</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">4</div>
             <div class="stat-label">Certs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Awards</div>
           </div>
         </div>
         
@@ -1711,13 +1801,6 @@
         </a>
       </div>
 
-      <div class="explore-card">
-        <a href="#testimonials">
-          <div class="explore-icon">💬</div>
-          <h3>Testimonials</h3>
-          <p>What colleagues and collaborators say about working with me</p>
-        </a>
-      </div>
     </div>
     
     <!-- Tech Stack Preview -->
@@ -1741,55 +1824,92 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS SECTION -->
-<section class="testimonials-section" id="testimonials">
+<!-- ENTERPRISE IMPACT SECTION -->
+<section class="impact-section" id="impact">
   <div class="explore-container">
     <div class="section-header">
-      <h2 class="section-title">What People Say</h2>
-      <p class="section-subtitle">Recommendations from colleagues & collaborators</p>
+      <h2 class="section-title">Enterprise Impact</h2>
+      <p class="section-subtitle">Measurable outcomes across BFSI & enterprise clients</p>
     </div>
 
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testimonial-text">Pushpak's deep knowledge of AWS and cloud security made him an invaluable asset to our team. His ability to architect scalable solutions while keeping costs optimized is remarkable.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar"><i class="fas fa-user"></i></div>
-          <div class="author-info">
-            <div class="author-name">LinkedIn Recommendation</div>
-            <div class="author-role">Colleague at Applied Cloud Computing</div>
-          </div>
-        </div>
+    <!-- Impact Numbers Strip -->
+    <div class="impact-numbers">
+      <div class="impact-stat">
+        <div class="impact-value">60%</div>
+        <div class="impact-desc">Max Cost Reduction</div>
+        <div class="impact-context">HDBFS — Automated compliance & rightsizing</div>
       </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testimonial-text">Working with Pushpak on our cloud migration project was an excellent experience. His methodical approach to disaster recovery planning and security compliance set a new standard for our team.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar"><i class="fas fa-user"></i></div>
-          <div class="author-info">
-            <div class="author-name">LinkedIn Recommendation</div>
-            <div class="author-role">Project Stakeholder</div>
-          </div>
-        </div>
+      <div class="impact-stat">
+        <div class="impact-value">&lt;10 min</div>
+        <div class="impact-desc">DR Failover RTO</div>
+        <div class="impact-context">ATLAS — AI-powered zero-touch failover</div>
       </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testimonial-text">As a mentor, Pushpak goes above and beyond. He doesn't just teach cloud concepts—he ensures you understand the why behind every architectural decision. A true enabler of growth.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar"><i class="fas fa-user"></i></div>
-          <div class="author-info">
-            <div class="author-name">LinkedIn Recommendation</div>
-            <div class="author-role">Mentee &amp; Cloud Engineer</div>
-          </div>
-        </div>
+      <div class="impact-stat">
+        <div class="impact-value">100+</div>
+        <div class="impact-desc">Servers Migrated</div>
+        <div class="impact-context">SBIGIC — 99.95% uptime achieved</div>
+      </div>
+      <div class="impact-stat">
+        <div class="impact-value">99.5%</div>
+        <div class="impact-desc">Deployment Success</div>
+        <div class="impact-context">TMF — EKS optimisation from 60% baseline</div>
       </div>
     </div>
 
-    <div style="text-align: center; margin-top: 2rem;">
-      <a href="https://www.linkedin.com/in/pushpak-patil-376024300/" target="_blank" rel="noopener noreferrer" style="color: #00ffff; text-decoration: none; font-size: 0.9rem; border: 1px solid rgba(0,255,255,0.3); padding: 0.6rem 1.5rem; border-radius: 999px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
-        <i class="fab fa-linkedin"></i> View All Recommendations on LinkedIn
+    <!-- Key Projects Grid -->
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-client">Bandhan Bank</span>
+          <span class="project-type">AIOps & Security</span>
+        </div>
+        <h3 class="project-title">AIOps, Security Automation & Intelligent Operations</h3>
+        <p class="project-desc">ML-based anomaly detection, AI-powered root cause analysis, and auto-remediation using AI agents and Lambda workflows.</p>
+        <div class="project-result">
+          <i class="fas fa-bolt"></i> Incident response: hours → minutes | Zero critical findings in security audits
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-client">RBL Bank</span>
+          <span class="project-type">Cross-Cloud Migration</span>
+        </div>
+        <h3 class="project-title">Azure to AWS — GitHub Enterprise Migration</h3>
+        <p class="project-desc">Led full migration of GitHub Enterprise Server including version upgrade and AWS infrastructure design.</p>
+        <div class="project-result">
+          <i class="fas fa-bolt"></i> Zero data loss | 45% performance gain | 30% cost reduction
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-client">HDBFS</span>
+          <span class="project-type">Compliance & FinOps</span>
+        </div>
+        <h3 class="project-title">Compliance Automation & Cost Optimisation</h3>
+        <p class="project-desc">Automated PCI DSS/CIS compliance with Config Rules and Security Hub. Built cost framework with Lambda/Step Functions.</p>
+        <div class="project-result">
+          <i class="fas fa-bolt"></i> 100% compliance score | 60% cost reduction | 95% manual effort saved
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-client">Edelweiss</span>
+          <span class="project-type">Modernisation</span>
+        </div>
+        <h3 class="project-title">Microservices Migration & Network Modernisation</h3>
+        <p class="project-desc">Rearchitected legacy monolith to cloud-native microservices on EKS/Fargate with Transit Gateway and CI/CD pipelines.</p>
+        <div class="project-result">
+          <i class="fas fa-bolt"></i> 50+ apps migrated | 35% cost reduction | Monthly → daily deployments
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="experience.html" class="impact-cta">
+        <i class="fas fa-arrow-right"></i> View Full Experience & Projects
       </a>
     </div>
   </div>
