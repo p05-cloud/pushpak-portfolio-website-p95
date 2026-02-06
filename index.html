@@ -971,6 +971,80 @@
       box-shadow: 0 5px 25px rgba(0, 255, 255, 0.5);
     }
 
+    /* Testimonials Section */
+    .testimonials-section {
+      position: relative;
+      z-index: 10;
+      padding: 80px 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: linear-gradient(135deg, rgba(0,30,60,0.3), rgba(30,0,60,0.3));
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0,255,255,0.5);
+      box-shadow: 0 10px 40px rgba(0,255,255,0.15);
+    }
+
+    .testimonial-quote {
+      color: rgba(0,255,255,0.3);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+      color: #bbb;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0,255,255,0.15);
+    }
+
+    .author-avatar {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(255,0,255,0.2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00ffff;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      color: #00ffff;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .author-role {
+      color: #888;
+      font-size: 0.8rem;
+    }
+
     /* ========== RESPONSIVE STYLES ========== */
     
     /* Tablet View (768px - 900px) */
@@ -1099,12 +1173,21 @@
         font-size: 0.6rem;
       }
       
-      .explore-section { 
-        padding: 60px 0; 
+      .testimonials-section {
+        padding: 60px 0;
       }
-      
-      .explore-container { 
-        padding: 0 1.5rem; 
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .explore-section {
+        padding: 60px 0;
+      }
+
+      .explore-container {
+        padding: 0 1.5rem;
       }
       
       .section-title { 
@@ -1439,7 +1522,8 @@
         <a href="skills.html">Skills</a>
         <a href="experience.html">Experience</a>
         <a href="automations.html">Automations</a>
-        <a href="images/PUSHPAK_PATIL_JAN26.pdf" download>View Resume</a>
+        <a href="images/Pushpak_Patil_CloudArchitect.pdf" download>View Resume</a>
+        <a href="images/Pushpak_Patil_CoverLetter.pdf" download>Cover Letter</a>
       </nav>
       
       <div class="social-icons">
@@ -1544,7 +1628,8 @@
         <div class="card-cta-group">
           <a href="automations.html" class="card-btn primary">VIEW AUTOMATIONS</a>
           <a href="experience.html" class="card-btn">MY JOURNEY</a>
-          <a href="images/PUSHPAK_PATIL_JAN26.pdf" class="card-btn" download>VIEW RESUME</a>
+          <a href="images/Pushpak_Patil_CloudArchitect.pdf" class="card-btn" download>VIEW RESUME</a>
+          <a href="images/Pushpak_Patil_CoverLetter.pdf" class="card-btn" download>VIEW COVER LETTER</a>
           <button class="card-btn" onclick="openModal()">CONTACT ME</button>
         </div>
       </div>
@@ -1625,6 +1710,14 @@
           <p>Milestones, awards, and recognition received</p>
         </a>
       </div>
+
+      <div class="explore-card">
+        <a href="#testimonials">
+          <div class="explore-icon">💬</div>
+          <h3>Testimonials</h3>
+          <p>What colleagues and collaborators say about working with me</p>
+        </a>
+      </div>
     </div>
     
     <!-- Tech Stack Preview -->
@@ -1644,6 +1737,60 @@
         <span class="tech-tag">Kubernetes</span>
         <span class="tech-tag highlight">Python</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials-section" id="testimonials">
+  <div class="explore-container">
+    <div class="section-header">
+      <h2 class="section-title">What People Say</h2>
+      <p class="section-subtitle">Recommendations from colleagues & collaborators</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-text">Pushpak's deep knowledge of AWS and cloud security made him an invaluable asset to our team. His ability to architect scalable solutions while keeping costs optimized is remarkable.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><i class="fas fa-user"></i></div>
+          <div class="author-info">
+            <div class="author-name">LinkedIn Recommendation</div>
+            <div class="author-role">Colleague at Applied Cloud Computing</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-text">Working with Pushpak on our cloud migration project was an excellent experience. His methodical approach to disaster recovery planning and security compliance set a new standard for our team.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><i class="fas fa-user"></i></div>
+          <div class="author-info">
+            <div class="author-name">LinkedIn Recommendation</div>
+            <div class="author-role">Project Stakeholder</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-text">As a mentor, Pushpak goes above and beyond. He doesn't just teach cloud concepts—he ensures you understand the why behind every architectural decision. A true enabler of growth.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar"><i class="fas fa-user"></i></div>
+          <div class="author-info">
+            <div class="author-name">LinkedIn Recommendation</div>
+            <div class="author-role">Mentee &amp; Cloud Engineer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="https://www.linkedin.com/in/pushpak-patil-376024300/" target="_blank" rel="noopener noreferrer" style="color: #00ffff; text-decoration: none; font-size: 0.9rem; border: 1px solid rgba(0,255,255,0.3); padding: 0.6rem 1.5rem; border-radius: 999px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <i class="fab fa-linkedin"></i> View All Recommendations on LinkedIn
+      </a>
     </div>
   </div>
 </section>
@@ -1679,7 +1826,7 @@
     <a href="automations.html">Automations</a>
     <a href="#" onclick="openModal(); return false;">Contact</a>
   </div>
-  <p>© 2025 <span>Pushpak Patil</span> • Built with ⚡ & ☁️</p>
+  <p>© 2026 <span>Pushpak Patil</span> • Built with ⚡ & ☁️</p>
 </footer>
 
 <!-- Scroll to Top Button -->

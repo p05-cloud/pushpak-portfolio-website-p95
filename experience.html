@@ -127,6 +127,96 @@ body {
     transform: translateX(-3px);
 }
 
+/* Full Navigation */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.nav-links a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00ffff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-resume {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(0,255,255,0.4);
+    border-radius: 6px;
+    color: #00ffff !important;
+    font-size: 0.78rem !important;
+}
+
+.nav-resume:hover {
+    background: rgba(0,255,255,0.15);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: 1px solid rgba(0,255,255,0.4);
+    color: #00ffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(0,255,255,0.15);
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    background: rgba(0,0,0,0.98);
+    border-top: 1px solid rgba(0,255,255,0.15);
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: #bbb;
+    text-decoration: none;
+    padding: 0.7rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+    color: #00ffff;
+}
+
 /* HERO */
 .experience-hero {
     text-align: center;
@@ -425,6 +515,14 @@ body {
         font-size: 0.85rem;
     }
 
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
     .experience-hero {
         padding: 100px 20px 40px;
     }
@@ -564,17 +662,34 @@ body {
 <body>
 
 <!-- Navigation -->
-<nav class="navbar">
+<nav class="navbar" id="navbar">
   <div class="nav-container">
-    <div class="nav-inner">
-      <div class="logo">
-        <a href="index.html">Pushpak Patil</a>
-      </div>
-      <a href="index.html" class="nav-back">
-        <i class="fas fa-arrow-left"></i>
-        Back to Home
-      </a>
+    <div class="logo">
+      <a href="index.html">Pushpak Patil</a>
     </div>
+    <div class="nav-links">
+      <a href="about_me.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Experience</a>
+      <a href="education.html">Education</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="automations.html">Automations</a>
+      <a href="learning.html">Learning</a>
+      <a href="images/Pushpak_Patil_CloudArchitect.pdf" class="nav-resume" download><i class="fas fa-file-download"></i> Resume</a>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about_me.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="experience.html">Experience</a>
+    <a href="education.html">Education</a>
+    <a href="certificate.html">Certifications</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="automations.html">Automations</a>
+    <a href="learning.html">Learning</a>
+    <a href="images/Pushpak_Patil_CloudArchitect.pdf" download><i class="fas fa-file-download"></i> Resume</a>
   </div>
 </nav>
 
@@ -751,6 +866,13 @@ body {
 <div class="home-button">
   <a href="index.html"><i class="fas fa-home"></i> Home</a>
 </div>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+}
+</script>
 
 </body>
 </html>
