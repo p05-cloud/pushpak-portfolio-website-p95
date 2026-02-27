@@ -27,6 +27,32 @@
       color: #ffffff;
       overflow-x: hidden;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Background Effects */
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: repeating-linear-gradient(0deg, rgba(0,255,255,0.03) 0px, rgba(0,255,255,0.03) 2px, transparent 2px, transparent 4px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .background-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(255, 0, 255, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     ::selection {
@@ -35,9 +61,11 @@
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 40px;
+      position: relative;
+      z-index: 2;
     }
 
     /* Keyframe Animations */
@@ -53,17 +81,13 @@
     }
 
     @keyframes borderGlow {
-      0% {
+      0%, 100% {
         border-color: rgba(0, 255, 255, 0.3);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
       }
       50% {
         border-color: rgba(255, 0, 255, 0.6);
-        box-shadow: 0 0 30px rgba(255, 0, 255, 0.4), inset 0 0 15px rgba(255, 0, 255, 0.05);
-      }
-      100% {
-        border-color: rgba(0, 255, 255, 0.3);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 40px rgba(255, 0, 255, 0.3), inset 0 0 20px rgba(255, 0, 255, 0.05);
       }
     }
 
@@ -72,16 +96,16 @@
         transform: translateY(0);
       }
       50% {
-        transform: translateY(-8px);
+        transform: translateY(-10px);
       }
     }
 
     @keyframes shine {
-      0% {
-        left: -100%;
+      from {
+        background-position: -200% center;
       }
-      50%, 100% {
-        left: 100%;
+      to {
+        background-position: 200% center;
       }
     }
 
@@ -118,10 +142,10 @@
     }
 
     @keyframes blink {
-      0%, 50% {
+      0%, 100% {
         opacity: 1;
       }
-      51%, 100% {
+      51% {
         opacity: 0;
       }
     }
@@ -145,6 +169,18 @@
       50% {
         opacity: 1;
         transform: translateX(-50%) scale(1.1);
+      }
+    }
+
+    @keyframes tilted3d {
+      0% {
+        transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+      }
+      50% {
+        transform: perspective(1000px) rotateX(-2deg) rotateY(3deg);
+      }
+      100% {
+        transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
       }
     }
 
@@ -172,14 +208,9 @@
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 40px;
-    }
-
-    .nav-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      width: 100%;
-      gap: 1rem;
+      align-items: center;
     }
 
     .logo a {
@@ -195,28 +226,6 @@
       text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
     }
 
-    .nav-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1.4rem;
-      background: rgba(0, 255, 255, 0.1);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 999px;
-      color: #00ffff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      white-space: nowrap;
-      transition: all 0.3s ease;
-    }
-
-    .nav-back:hover {
-      background: rgba(0, 255, 255, 0.2);
-      transform: translateX(-3px);
-    }
-
-    /* Full Navigation */
     .nav-links {
       display: flex;
       align-items: center;
@@ -308,10 +317,10 @@
 
     /* Hero Section */
     .cert-header {
-      text-align: center;
       padding: 140px 40px 80px;
       position: relative;
       overflow: hidden;
+      z-index: 2;
     }
 
     .cert-header::before {
@@ -325,41 +334,40 @@
       background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 70%);
       pointer-events: none;
       animation: pulse 4s ease-in-out infinite;
+      z-index: 0;
     }
 
     .cert-title {
       font-size: 4rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      font-weight: 800;
+      background: linear-gradient(135deg, #00ffff, #ff00ff, #00ffff);
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 30px;
-      animation: fadeInUp 0.8s ease-out;
+      margin-bottom: 15px;
+      animation: fadeInUp 0.8s ease-out, gradientShift 8s ease infinite;
       position: relative;
       z-index: 1;
+      line-height: 1.2;
     }
 
     .title-underline {
       width: 120px;
       height: 5px;
-      margin: 30px auto;
+      margin: 20px auto;
       background: linear-gradient(135deg, #00ffff, #ff00ff);
       border-radius: 3px;
-      animation: expandContract 2s ease-in-out infinite;
+      animation: expandLine 1.2s ease forwards;
       position: relative;
-    }
-
-    @keyframes expandContract {
-      0%, 100% { width: 120px; }
-      50% { width: 180px; }
+      z-index: 1;
     }
 
     .cert-subtitle {
       font-size: 1.3rem;
       color: #bbb;
       max-width: 800px;
-      margin: 0 auto;
+      margin: 25px auto 0;
       line-height: 1.8;
       position: relative;
       z-index: 1;
@@ -384,8 +392,10 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-top: 40px;
+      margin-top: 35px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
 
     .vendor-badge {
@@ -399,11 +409,13 @@
       font-size: 0.9rem;
       color: #aaa;
       transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
 
     .vendor-badge:hover {
       background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .vendor-badge.aws {
@@ -411,30 +423,42 @@
       color: #ff9900;
     }
 
+    .vendor-badge.aws:hover {
+      background: rgba(255, 153, 0, 0.1);
+      border-color: rgba(255, 153, 0, 0.5);
+    }
+
     .vendor-badge.ibm {
       border-color: rgba(15, 98, 254, 0.3);
       color: #0f62fe;
+    }
+
+    .vendor-badge.ibm:hover {
+      background: rgba(15, 98, 254, 0.1);
+      border-color: rgba(15, 98, 254, 0.5);
     }
 
     .vendor-badge i {
       font-size: 1.1rem;
     }
 
-    /* Stats Section */
+    /* Stats Section - Integrated into Hero */
     .cert-stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
-      margin: 80px auto;
+      margin: 60px auto 0;
       max-width: 1200px;
       padding: 0 40px;
+      position: relative;
+      z-index: 1;
     }
 
     .cert-stat {
       text-align: center;
-      padding: 40px 30px;
-      background: rgba(0, 0, 0, 0.9);
-      border-radius: 20px;
+      padding: 30px 25px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 18px;
       backdrop-filter: blur(20px);
       border: 1px solid rgba(0, 255, 255, 0.15);
       transition: all 0.3s ease;
@@ -456,8 +480,9 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.15), transparent);
       transition: left 0.6s ease;
+      z-index: 1;
     }
 
     .cert-stat:hover::before {
@@ -465,9 +490,10 @@
     }
 
     .cert-stat:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-8px) scale(1.05);
       box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
-      border-color: rgba(0, 255, 255, 0.5);
+      border-color: rgba(0, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .cert-stat span {
@@ -478,9 +504,11 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       display: block;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       font-family: 'Fira Code', monospace;
       animation: countUp 0.8s ease-out backwards;
+      position: relative;
+      z-index: 2;
     }
 
     .cert-stat:nth-child(1) span { animation-delay: 0.2s; }
@@ -490,13 +518,17 @@
 
     .cert-stat p {
       color: #aaa;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       line-height: 1.5;
+      position: relative;
+      z-index: 2;
     }
 
     /* Certification Section */
     .cert-section {
-      padding: 60px 40px 140px;
+      padding: 100px 40px 140px;
+      position: relative;
+      z-index: 2;
     }
 
     .section-divider {
@@ -511,16 +543,16 @@
     .cert-list {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 45px;
       max-width: 1400px;
       margin: 0 auto;
     }
 
     .cert-card {
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(20px);
       border-radius: 25px;
-      border: 1px solid rgba(0, 255, 255, 0.15);
+      border: 1px solid rgba(0, 255, 255, 0.2);
       position: relative;
       overflow: hidden;
       transition: all 0.4s ease;
@@ -529,13 +561,14 @@
       display: flex;
       flex-direction: row;
       align-items: stretch;
-      min-height: 280px;
+      min-height: 320px;
+      will-change: transform, box-shadow;
     }
 
     .cert-card:nth-child(1) { animation-delay: 0.2s; }
-    .cert-card:nth-child(2) { animation-delay: 0.4s; }
-    .cert-card:nth-child(3) { animation-delay: 0.6s; }
-    .cert-card:nth-child(4) { animation-delay: 0.8s; }
+    .cert-card:nth-child(2) { animation-delay: 0.35s; }
+    .cert-card:nth-child(3) { animation-delay: 0.5s; }
+    .cert-card:nth-child(4) { animation-delay: 0.65s; }
 
     .cert-card::before {
       content: '';
@@ -544,7 +577,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.12), transparent);
       transition: left 0.6s ease;
       z-index: 1;
     }
@@ -554,18 +587,19 @@
     }
 
     .cert-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 50px rgba(0, 255, 255, 0.3);
-      border-color: rgba(0, 255, 255, 0.5);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0, 255, 255, 0.25);
+      border-color: rgba(0, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.9);
     }
 
     /* Level-specific card styling */
     .cert-card.specialty {
-      border-color: rgba(255, 0, 102, 0.2);
+      border-color: rgba(255, 0, 102, 0.25);
     }
     .cert-card.specialty:hover {
       border-color: rgba(255, 0, 102, 0.5);
-      box-shadow: 0 25px 50px rgba(255, 0, 102, 0.2);
+      box-shadow: 0 25px 60px rgba(255, 0, 102, 0.25);
     }
     .cert-card.specialty .cert-tag {
       background: rgba(255, 0, 102, 0.15);
@@ -573,15 +607,15 @@
       color: #ff0066;
     }
     .cert-card.specialty .cert-image-container {
-      background: linear-gradient(135deg, rgba(255, 0, 102, 0.1), rgba(30, 0, 60, 0.2));
+      background: linear-gradient(135deg, rgba(255, 0, 102, 0.1), rgba(30, 0, 60, 0.15));
     }
 
     .cert-card.ibm-advanced {
-      border-color: rgba(15, 98, 254, 0.2);
+      border-color: rgba(15, 98, 254, 0.25);
     }
     .cert-card.ibm-advanced:hover {
       border-color: rgba(15, 98, 254, 0.5);
-      box-shadow: 0 25px 50px rgba(15, 98, 254, 0.2);
+      box-shadow: 0 25px 60px rgba(15, 98, 254, 0.25);
     }
     .cert-card.ibm-advanced .cert-tag {
       background: rgba(15, 98, 254, 0.15);
@@ -589,7 +623,7 @@
       color: #0f62fe;
     }
     .cert-card.ibm-advanced .cert-image-container {
-      background: linear-gradient(135deg, rgba(15, 98, 254, 0.1), rgba(0, 30, 80, 0.2));
+      background: linear-gradient(135deg, rgba(15, 98, 254, 0.1), rgba(0, 30, 80, 0.15));
     }
     .cert-card.ibm-advanced .cert-points li {
       border-left-color: rgba(15, 98, 254, 0.3);
@@ -619,11 +653,11 @@
     }
 
     .cert-card.associate {
-      border-color: rgba(255, 153, 0, 0.2);
+      border-color: rgba(255, 153, 0, 0.25);
     }
     .cert-card.associate:hover {
       border-color: rgba(255, 153, 0, 0.5);
-      box-shadow: 0 25px 50px rgba(255, 153, 0, 0.2);
+      box-shadow: 0 25px 60px rgba(255, 153, 0, 0.25);
     }
     .cert-card.associate .cert-tag {
       background: rgba(255, 153, 0, 0.15);
@@ -631,7 +665,7 @@
       color: #ff9900;
     }
     .cert-card.associate .cert-image-container {
-      background: linear-gradient(135deg, rgba(255, 153, 0, 0.1), rgba(30, 30, 0, 0.2));
+      background: linear-gradient(135deg, rgba(255, 153, 0, 0.1), rgba(80, 40, 0, 0.15));
     }
 
     .cert-card.foundational {
@@ -639,43 +673,47 @@
     }
     .cert-card.foundational:hover {
       border-color: rgba(0, 255, 255, 0.5);
-      box-shadow: 0 25px 50px rgba(0, 255, 255, 0.2);
+      box-shadow: 0 25px 60px rgba(0, 255, 255, 0.25);
     }
     .cert-card.foundational .cert-tag {
       background: rgba(0, 255, 255, 0.1);
       border-color: rgba(0, 255, 255, 0.3);
       color: #00ffff;
     }
+    .cert-card.foundational .cert-image-container {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 50, 100, 0.15));
+    }
 
     .cert-image-container {
       position: relative;
-      width: 320px;
-      min-width: 320px;
-      background: linear-gradient(135deg, rgba(0, 30, 60, 0.3), rgba(30, 0, 60, 0.2));
-      padding: 40px;
+      width: 340px;
+      min-width: 340px;
+      background: linear-gradient(135deg, rgba(0, 50, 100, 0.3), rgba(50, 0, 100, 0.2));
+      padding: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
+      border-right: 1px solid rgba(0, 255, 255, 0.1);
     }
 
     .cert-image-container img {
       width: 100%;
-      max-width: 220px;
+      max-width: 240px;
       height: auto;
       object-fit: contain;
       cursor: pointer;
       transition: all 0.4s ease;
-      filter: drop-shadow(0 10px 20px rgba(0, 255, 255, 0.2));
+      filter: drop-shadow(0 10px 25px rgba(0, 255, 255, 0.2));
     }
 
     .cert-image-container img:hover {
-      transform: scale(1.08) rotate(3deg);
-      filter: drop-shadow(0 15px 30px rgba(0, 255, 255, 0.4));
+      transform: scale(1.12) rotate(2deg);
+      filter: drop-shadow(0 15px 35px rgba(0, 255, 255, 0.4));
     }
 
     .cert-content {
-      padding: 35px 40px;
+      padding: 40px 45px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -692,19 +730,19 @@
       background: rgba(0, 255, 255, 0.1);
       border: 1px solid rgba(0, 255, 255, 0.3);
       border-radius: 20px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #00ffff;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      margin-bottom: 18px;
+      margin-bottom: 15px;
       width: fit-content;
       font-family: 'Fira Code', monospace;
       transition: all 0.3s ease;
     }
 
     .cert-card:hover .cert-tag {
-      background: rgba(0, 255, 255, 0.2);
+      background: rgba(0, 255, 255, 0.15);
       border-color: rgba(0, 255, 255, 0.5);
     }
 
@@ -734,14 +772,14 @@
     }
 
     .cert-content h2 {
-      font-size: 1.75rem;
-      font-weight: 600;
+      font-size: 1.85rem;
+      font-weight: 700;
       margin-bottom: 15px;
       background: linear-gradient(135deg, #00ffff, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     .cert-card.ibm-advanced .cert-content h2 {
@@ -752,7 +790,7 @@
     }
 
     .cert-content > p {
-      color: #aaa;
+      color: #bbb;
       margin-bottom: 20px;
       line-height: 1.7;
       font-size: 1.05rem;
@@ -859,7 +897,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
       transition: left 0.5s ease;
       z-index: -1;
     }
@@ -872,7 +910,7 @@
       background: #00ffff;
       color: #000;
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
     }
 
     .cert-card.specialty .btn {
@@ -882,7 +920,7 @@
     .cert-card.specialty .btn:hover {
       background: #ff0066;
       color: #fff;
-      box-shadow: 0 8px 25px rgba(255, 0, 102, 0.5);
+      box-shadow: 0 10px 30px rgba(255, 0, 102, 0.5);
     }
 
     .cert-card.associate .btn {
@@ -892,7 +930,7 @@
     .cert-card.associate .btn:hover {
       background: #ff9900;
       color: #000;
-      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(255, 153, 0, 0.5);
     }
 
     /* Verify Button Style */
@@ -935,7 +973,7 @@
     .btn-verify:hover {
       background: rgba(0, 255, 255, 0.15);
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
     }
 
     .btn-verify i {
@@ -948,7 +986,7 @@
     }
     .cert-card.specialty .btn-verify:hover {
       background: rgba(255, 0, 102, 0.15);
-      box-shadow: 0 5px 20px rgba(255, 0, 102, 0.3);
+      box-shadow: 0 8px 25px rgba(255, 0, 102, 0.3);
     }
 
     .cert-card.associate .btn-verify {
@@ -957,20 +995,21 @@
     }
     .cert-card.associate .btn-verify:hover {
       background: rgba(255, 153, 0, 0.15);
-      box-shadow: 0 5px 20px rgba(255, 153, 0, 0.3);
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.3);
     }
 
     /* Journey Section */
     .cert-journey {
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(20px);
       border-radius: 25px;
-      border: 1px solid rgba(0, 255, 255, 0.15);
-      margin: 0 auto 80px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      margin: 80px auto;
       max-width: 1200px;
-      padding: 50px;
+      padding: 60px 50px;
       position: relative;
       overflow: hidden;
+      z-index: 2;
     }
 
     .cert-journey::before {
@@ -980,8 +1019,9 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.08), transparent);
       transition: left 0.8s ease;
+      z-index: 1;
     }
 
     .cert-journey:hover::before {
@@ -990,43 +1030,45 @@
 
     .journey-title {
       text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 40px;
+      font-size: 1.9rem;
+      margin-bottom: 50px;
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 15px;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      font-weight: 700;
     }
 
     .journey-title i {
       color: #00ffff;
       animation: float 3s ease-in-out infinite;
+      font-size: 1.8rem;
     }
 
     .journey-path {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       flex-wrap: wrap;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .journey-step {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
-      padding: 25px 30px;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 12px;
+      padding: 30px 35px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       transition: all 0.3s ease;
-      min-width: 140px;
+      min-width: 160px;
       position: relative;
       overflow: hidden;
     }
@@ -1038,8 +1080,9 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.12), transparent);
       transition: left 0.6s ease;
+      z-index: 1;
     }
 
     .journey-step:hover::before {
@@ -1047,35 +1090,39 @@
     }
 
     .journey-step:hover {
-      transform: translateY(-5px) scale(1.05);
+      transform: translateY(-8px) scale(1.08);
       border-color: rgba(0, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 15px 40px rgba(0, 255, 255, 0.15);
     }
 
     .journey-step i {
-      font-size: 2rem;
-      color: #666;
+      font-size: 2.2rem;
+      color: #555;
       transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
     }
 
     .journey-step span {
-      font-weight: 600;
+      font-weight: 700;
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 1rem;
       text-align: center;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .journey-step small {
-      color: #666;
-      font-size: 0.8rem;
+      color: #777;
+      font-size: 0.85rem;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .journey-step.completed {
       border-color: rgba(0, 255, 255, 0.3);
+      background: rgba(0, 255, 255, 0.06);
     }
 
     .journey-step.completed i {
@@ -1092,6 +1139,7 @@
 
     .journey-step.associate.completed {
       border-color: rgba(255, 153, 0, 0.3);
+      background: rgba(255, 153, 0, 0.05);
     }
     .journey-step.associate.completed i {
       color: #ff9900;
@@ -1099,6 +1147,7 @@
 
     .journey-step.specialty.completed {
       border-color: rgba(255, 0, 102, 0.3);
+      background: rgba(255, 0, 102, 0.05);
     }
     .journey-step.specialty.completed i {
       color: #ff0066;
@@ -1106,14 +1155,16 @@
 
     .journey-step.ibm-advanced.completed {
       border-color: rgba(15, 98, 254, 0.3);
+      background: rgba(15, 98, 254, 0.05);
     }
     .journey-step.ibm-advanced.completed i {
       color: #0f62fe;
     }
 
     .journey-arrow {
-      color: #333;
-      font-size: 1.5rem;
+      color: #444;
+      font-size: 1.6rem;
+      font-weight: 300;
     }
 
     /* Modal */
@@ -1219,6 +1270,7 @@
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
       transition: left 0.6s ease;
+      z-index: -1;
     }
 
     .home-button a:hover::before {
@@ -1242,10 +1294,40 @@
         width: 100%;
         min-width: unset;
         padding: 40px;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.1);
       }
 
       .cert-image-container img {
         max-width: 180px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .cert-title {
+        font-size: 2.8rem;
+      }
+
+      .cert-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .cert-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 0 20px;
+      }
+
+      .cert-stat {
+        padding: 25px 20px;
+      }
+
+      .cert-stat span {
+        font-size: 2.2rem;
+      }
+
+      .cert-stat p {
+        font-size: 0.9rem;
       }
     }
 
@@ -1263,25 +1345,26 @@
       }
 
       .cert-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
 
       .cert-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
+      }
+
+      .vendor-badges {
+        gap: 10px;
       }
 
       .cert-stats {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 15px;
         padding: 0 20px;
-      }
-
-      .cert-stat span {
-        font-size: 2rem;
+        margin: 40px auto 0;
       }
 
       .cert-section {
-        padding: 40px 20px 100px;
+        padding: 60px 20px 100px;
       }
 
       .cert-content {
@@ -1313,12 +1396,18 @@
       }
 
       .cert-journey {
-        margin: 0 20px 60px;
-        padding: 30px 20px;
+        margin: 60px 20px;
+        padding: 40px 25px;
+      }
+
+      .journey-title {
+        font-size: 1.5rem;
+        margin-bottom: 35px;
       }
 
       .journey-path {
         flex-direction: column;
+        gap: 20px;
       }
 
       .journey-arrow {
@@ -1330,13 +1419,96 @@
         right: 20px;
       }
 
-      .vendor-badges {
-        gap: 10px;
+      .home-button a {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cert-title {
+        font-size: 1.8rem;
+      }
+
+      .cert-subtitle {
+        font-size: 0.95rem;
+        white-space: normal;
+      }
+
+      .cert-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 15px;
+        margin: 30px auto 0;
+      }
+
+      .cert-stat span {
+        font-size: 1.8rem;
+      }
+
+      .cert-stat p {
+        font-size: 0.85rem;
+      }
+
+      .cert-list {
+        gap: 30px;
+      }
+
+      .cert-card {
+        min-height: auto;
+      }
+
+      .cert-image-container {
+        padding: 30px;
+      }
+
+      .cert-content {
+        padding: 20px;
+      }
+
+      .cert-content h2 {
+        font-size: 1.2rem;
+      }
+
+      .cert-content > p {
+        font-size: 0.95rem;
+      }
+
+      .cert-points li {
+        font-size: 0.9rem;
+        min-width: auto;
+      }
+
+      .btn, .btn-verify {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+
+      .journey-step {
+        padding: 20px 25px;
+        min-width: 140px;
+      }
+
+      .journey-step i {
+        font-size: 1.8rem;
+      }
+
+      .journey-step span {
+        font-size: 0.85rem;
+      }
+
+      .cert-journey {
+        margin: 40px 15px;
+        padding: 30px 20px;
       }
     }
   </style>
 </head>
 <body>
+
+<!-- Background Effects -->
+<div class="grid-overlay"></div>
+<div class="background-glow"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
@@ -1370,38 +1542,38 @@
   </div>
 </nav>
 
-<!-- HEADER -->
+<!-- HEADER / HERO SECTION -->
 <header class="cert-header">
   <h1 class="cert-title">Professional Certifications</h1>
   <div class="title-underline"></div>
   <p class="cert-subtitle">
-    Industry-recognized credentials validating expertise in cloud architecture, security engineering, and enterprise automation technologies.
+    4 Active Credentials · AWS & IBM · Security & Architecture
   </p>
   <div class="vendor-badges">
     <span class="vendor-badge aws"><i class="fab fa-aws"></i> Amazon Web Services</span>
     <span class="vendor-badge ibm"><i class="fas fa-cube"></i> IBM</span>
   </div>
-</header>
 
-<!-- STATS -->
-<div class="cert-stats">
-  <div class="cert-stat">
-    <span>4</span>
-    <p>Active Certifications</p>
+  <!-- STATS INTEGRATED INTO HERO -->
+  <div class="cert-stats">
+    <div class="cert-stat">
+      <span class="stat-number" data-value="4">0</span>
+      <p>Active Certifications</p>
+    </div>
+    <div class="cert-stat">
+      <span class="stat-number" data-value="1">0</span>
+      <p>Specialty Level</p>
+    </div>
+    <div class="cert-stat">
+      <span class="stat-number" data-value="2">0</span>
+      <p>Certification Vendors</p>
+    </div>
+    <div class="cert-stat">
+      <span class="stat-number" data-value="3">0</span>
+      <p>Years Cloud Expertise</p>
+    </div>
   </div>
-  <div class="cert-stat">
-    <span>2</span>
-    <p>Certification Vendors</p>
-  </div>
-  <div class="cert-stat">
-    <span>1</span>
-    <p>Specialty Level</p>
-  </div>
-  <div class="cert-stat">
-    <span>3+</span>
-    <p>Years Cloud Expertise</p>
-  </div>
-</div>
+</header>
 
 <!-- CERTIFICATIONS -->
 <section class="cert-section">
@@ -1522,7 +1694,7 @@
       </div>
     </div>
 
-    <!-- CERT 4: Cloud Practitioner (No Credly badge) -->
+    <!-- CERT 4: Cloud Practitioner -->
     <div class="cert-card foundational">
       <div class="cert-image-container">
         <img src="images/ccp.png" alt="AWS Cloud Practitioner Certificate" onclick="openCertificate('images/ccp.png')">
@@ -1622,6 +1794,32 @@
     }
   });
 
+  // Counter animation for stats
+  function animateCounters() {
+    document.querySelectorAll('.stat-number').forEach(element => {
+      const target = parseInt(element.getAttribute('data-value'));
+      const duration = 800;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + (target === 3 ? '+' : '');
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+      }, 16);
+    });
+  }
+
+  // Trigger counter animation on page load
+  window.addEventListener('load', () => {
+    animateCounters();
+  });
+
+  // Modal functions
   function openCertificate(imageSrc) {
     const modal = document.getElementById('certificate-modal');
     const img = document.getElementById('certificate-image');
@@ -1657,7 +1855,7 @@
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
@@ -1678,13 +1876,13 @@
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
-      element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+      const rotateX = (y - centerY) / 25;
+      const rotateY = (centerX - x) / 25;
+      element.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(15px)`;
     });
     element.addEventListener('mouseleave', () => {
-      element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-      element.style.transition = 'transform 0.5s ease';
+      element.style.transform = 'perspective(1200px) rotateX(0) rotateY(0) translateZ(0)';
+      element.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.320, 1)';
     });
     element.addEventListener('mouseenter', () => {
       element.style.transition = 'none';
@@ -1696,11 +1894,11 @@
     addTiltEffect(card);
   });
 
-  // Animate journey steps
+  // Animate journey steps with stagger
   document.querySelectorAll('.journey-step').forEach((step, index) => {
     step.style.opacity = '0';
     step.style.transform = 'translateY(20px)';
-    step.style.transition = 'all 0.5s ease ' + (index * 0.15) + 's';
+    step.style.transition = `all 0.5s ease ${index * 0.15}s`;
 
     const stepObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1714,10 +1912,18 @@
     stepObserver.observe(step);
   });
 
+  // Mobile menu toggle
   function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     menu.classList.toggle('active');
   }
+
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('active');
+    });
+  });
 </script>
 
 </body>
