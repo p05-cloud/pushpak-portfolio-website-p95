@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pushpak Patil - Education in Science and Mathematics from Mumbai University forming foundation for Cloud Architecture">
-    <meta name="keywords" content="Mumbai University, M.Sc Organic Chemistry, B.Sc Mathematics, Computer Science, Cloud Architect">
+    <meta name="description" content="Pushpak Patil - Education in Science and Mathematics from Mumbai University forming foundation for Cloud Architecture, with planned MCA in Computer Applications">
+    <meta name="keywords" content="Mumbai University, MCA Master Computer Applications, B.Sc Mathematics, Computer Science, Cloud Architect, AI Machine Learning">
     <meta name="author" content="Pushpak Patil">
     <title>Education | Pushpak Patil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,7 +20,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #000;
+            background: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
             min-height: 100vh;
@@ -164,7 +164,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
@@ -174,7 +174,7 @@
 
         .navbar.scrolled {
             padding: 0.8rem 0;
-            background: rgba(0, 0, 0, 0.98);
+            background: rgba(10, 10, 10, 0.98);
             box-shadow: 0 4px 20px rgba(0, 255, 255, 0.1);
         }
 
@@ -294,7 +294,7 @@
             display: none;
             flex-direction: column;
             padding: 1rem 2rem;
-            background: rgba(0,0,0,0.98);
+            background: rgba(10,10,10,0.98);
             border-top: 1px solid rgba(0,255,255,0.15);
         }
 
@@ -346,8 +346,7 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 0.8s ease;
-            animation: gradientShift 8s ease infinite;
+            animation: fadeInUp 0.8s ease, gradientShift 8s ease infinite;
         }
 
         .title-underline {
@@ -375,14 +374,14 @@
         /* ===== STATS SECTION ===== */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            max-width: 700px;
+            max-width: 900px;
             margin: 40px auto;
         }
 
         .stat-card {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 10, 10, 0.9);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 15px;
             padding: 25px 15px;
@@ -390,11 +389,13 @@
             transition: all 0.3s ease;
             animation: fadeInUp 0.8s ease both;
             will-change: transform;
+            backdrop-filter: blur(10px);
         }
 
         .stat-card:nth-child(1) { animation-delay: 0s; }
         .stat-card:nth-child(2) { animation-delay: 0.1s; }
         .stat-card:nth-child(3) { animation-delay: 0.2s; }
+        .stat-card:nth-child(4) { animation-delay: 0.3s; }
 
         .stat-card:hover {
             transform: translateY(-8px);
@@ -404,7 +405,7 @@
         }
 
         .stat-number {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             background: linear-gradient(135deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
@@ -417,7 +418,8 @@
 
         .stat-label {
             color: #888;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            line-height: 1.3;
         }
 
         /* ===== SECTION DIVIDER ===== */
@@ -464,7 +466,7 @@
         }
 
         .education-card {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(10, 10, 10, 0.95);
             border-radius: 20px;
             padding: 35px;
             border: 1px solid rgba(0, 255, 255, 0.15);
@@ -478,6 +480,7 @@
 
         .education-card:nth-child(1) { animation-delay: 0s; }
         .education-card:nth-child(2) { animation-delay: 0.15s; }
+        .education-card:nth-child(3) { animation-delay: 0.3s; }
 
         .education-card::before {
             content: '';
@@ -507,6 +510,17 @@
         }
 
         /* Card Variants */
+        .education-card.mca {
+            border-color: rgba(255, 165, 0, 0.2);
+        }
+        .education-card.mca::before {
+            background: linear-gradient(90deg, #ffa500, #ff8c00);
+        }
+        .education-card.mca:hover {
+            border-color: rgba(255, 165, 0, 0.4);
+            box-shadow: 0 25px 70px rgba(255, 165, 0, 0.25);
+        }
+
         .education-card.masters {
             border-color: rgba(138, 43, 226, 0.2);
         }
@@ -545,6 +559,15 @@
             justify-content: center;
             flex-shrink: 0;
             transition: all 0.3s ease;
+        }
+
+        .education-card.mca .education-icon {
+            background: rgba(255, 165, 0, 0.15);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+        }
+        .education-card.mca .education-icon i {
+            color: #ffa500;
+            font-size: 1.5rem;
         }
 
         .education-card.masters .education-icon {
@@ -586,6 +609,12 @@
             animation: fadeInUp 0.6s ease;
         }
 
+        .education-card.mca .degree-badge {
+            background: rgba(255, 165, 0, 0.15);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            color: #ffa500;
+        }
+
         .education-card.masters .degree-badge {
             background: rgba(138, 43, 226, 0.15);
             border: 1px solid rgba(138, 43, 226, 0.3);
@@ -605,6 +634,13 @@
             line-height: 1.3;
             animation: fadeInUp 0.6s ease;
             animation-delay: 0.05s;
+        }
+
+        .education-card.mca .degree-name {
+            background: linear-gradient(135deg, #ffa500, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .education-card.masters .degree-name {
@@ -639,6 +675,7 @@
             font-family: 'Fira Code', monospace;
         }
 
+        .education-card.mca .duration i { color: #ffa500; }
         .education-card.masters .duration i { color: #8a2be2; }
         .education-card.bachelors .duration i { color: #00c8ff; }
 
@@ -679,6 +716,7 @@
             gap: 8px;
         }
 
+        .education-card.mca .section-subtitle i { color: #ffa500; }
         .education-card.masters .section-subtitle i { color: #8a2be2; }
         .education-card.bachelors .section-subtitle i { color: #00c8ff; }
 
@@ -703,6 +741,11 @@
             color: #fff;
         }
 
+        .education-card.mca .skill-tag:hover {
+            border-color: rgba(255, 165, 0, 0.5);
+            background: rgba(255, 165, 0, 0.1);
+        }
+
         .education-card.masters .skill-tag:hover {
             border-color: rgba(138, 43, 226, 0.5);
             background: rgba(138, 43, 226, 0.1);
@@ -713,17 +756,130 @@
             background: rgba(0, 200, 255, 0.1);
         }
 
+        /* ===== ASPIRATIONS SECTION ===== */
+        .aspirations-section {
+            max-width: 1000px;
+            margin: 80px auto 0;
+            padding: 0 20px;
+        }
+
+        .aspirations-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .aspirations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .aspiration-card {
+            background: rgba(10, 10, 10, 0.95);
+            border-radius: 20px;
+            padding: 40px 35px;
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease both;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .aspiration-card:nth-child(1) { animation-delay: 0s; }
+        .aspiration-card:nth-child(2) { animation-delay: 0.15s; }
+        .aspiration-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .aspiration-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .aspiration-card:hover::before {
+            opacity: 1;
+        }
+
+        .aspiration-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 70px rgba(0, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.3);
+        }
+
+        .aspiration-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .aspiration-location {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            animation: fadeInUp 0.6s ease;
+            animation-delay: 0.05s;
+        }
+
+        .aspiration-description {
+            color: #bbb;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease;
+            animation-delay: 0.1s;
+        }
+
+        .aspiration-card:nth-child(1) .aspiration-icon { color: #00ffff; }
+        .aspiration-card:nth-child(2) .aspiration-icon { color: #ff00ff; }
+        .aspiration-card:nth-child(3) .aspiration-icon { color: #00ffff; }
+
+        .aspiration-note {
+            text-align: center;
+            color: #888;
+            font-size: 0.95rem;
+            padding: 30px;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease;
+            animation-delay: 0.45s;
+        }
+
+        .aspiration-note i {
+            color: #00ffff;
+            margin-right: 10px;
+        }
+
         /* ===== TRANSITION NOTE ===== */
         .transition-section {
             max-width: 800px;
             margin: 80px auto 0;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 10, 10, 0.95);
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 20px;
             text-align: center;
             animation: fadeInUp 0.8s ease;
-            animation-delay: 0.3s;
+            animation-delay: 0.5s;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
@@ -798,6 +954,14 @@
             .education-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .aspirations-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -811,6 +975,7 @@
 
             .stats-grid {
                 gap: 15px;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .stat-card {
@@ -818,7 +983,7 @@
             }
 
             .stat-number {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
 
             .education-card {
@@ -831,9 +996,22 @@
                 gap: 15px;
             }
 
+            .aspiration-card {
+                padding: 30px 25px;
+            }
+
             .transition-section {
                 padding: 25px 20px;
                 margin: 40px 20px 0;
+            }
+
+            .aspirations-section {
+                margin: 60px auto 0;
+            }
+
+            .aspirations-title {
+                font-size: 1.6rem;
+                margin-bottom: 35px;
             }
         }
 
@@ -844,6 +1022,7 @@
 
             .stats-grid {
                 gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .stat-card {
@@ -851,11 +1030,11 @@
             }
 
             .stat-number {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
 
             .stat-label {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
 
             .education-grid {
@@ -867,6 +1046,22 @@
             }
 
             .degree-name {
+                font-size: 1.05rem;
+            }
+
+            .aspirations-grid {
+                padding: 0 5px;
+            }
+
+            .aspiration-card {
+                padding: 25px 15px;
+            }
+
+            .aspiration-icon {
+                font-size: 2.5rem;
+            }
+
+            .aspiration-location {
                 font-size: 1.1rem;
             }
 
@@ -878,6 +1073,11 @@
             .home-button a {
                 padding: 12px 20px;
                 font-size: 0.9rem;
+            }
+
+            .aspirations-title {
+                font-size: 1.4rem;
+                margin-bottom: 30px;
             }
         }
     </style>
@@ -934,16 +1134,20 @@
     <div class="container">
         <div class="stats-grid">
             <div class="stat-card">
-                <span class="stat-number">M.Sc</span>
-                <span class="stat-label">Post Graduate</span>
-            </div>
-            <div class="stat-card">
                 <span class="stat-number">B.Sc</span>
                 <span class="stat-label">Graduate</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number">Mumbai</span>
+                <span class="stat-number">MCA</span>
+                <span class="stat-label">Planned</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">Mumbai U</span>
                 <span class="stat-label">University</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">Global</span>
+                <span class="stat-label">Aspirations</span>
             </div>
         </div>
     </div>
@@ -963,38 +1167,38 @@
     <section class="education-section container">
         <div class="education-grid">
 
-            <!-- Masters Degree -->
-            <div class="education-card masters">
+            <!-- MCA Degree -->
+            <div class="education-card mca">
                 <div class="education-header">
                     <div class="education-icon">
-                        <i class="fas fa-flask"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
                     <div class="education-info">
-                        <span class="degree-badge">Post Graduate</span>
-                        <h2 class="degree-name">M.Sc in Organic Chemistry</h2>
-                        <p class="university-name">Mumbai University, Mumbai</p>
+                        <span class="degree-badge">Upcoming / Planned</span>
+                        <h2 class="degree-name">MCA – Master of Computer Applications</h2>
+                        <p class="university-name">TBD</p>
                         <span class="duration">
-                            <i class="fas fa-calendar-alt"></i> 2015 - 2017
+                            <i class="fas fa-calendar-alt"></i> 2026 (Planned)
                         </span>
                     </div>
                 </div>
                 <div class="education-content">
                     <p class="description-text">
-                        Advanced study in organic chemistry with focus on research methodology,
-                        analytical techniques, and scientific problem-solving. The rigorous research
-                        approach and attention to detail developed here directly applies to
-                        designing secure and well-architected cloud solutions.
+                        Exploring options to pursue MCA to formalize expertise in Computer Science, AI & Machine Learning.
+                        With deep hands-on AI/ML expertise and proven ability to architect cloud solutions, evaluating whether
+                        a formal degree is necessary for advancement in Big Five consulting and tech leadership roles.
+                        This planned degree would provide academic rigor and credentials alongside practical experience.
                     </p>
                     <div class="skills-section">
                         <h3 class="section-subtitle">
                             <i class="fas fa-brain"></i> Transferable Skills
                         </h3>
                         <div class="skills-grid">
-                            <span class="skill-tag">Research Methodology</span>
-                            <span class="skill-tag">Analytical Thinking</span>
-                            <span class="skill-tag">Problem Solving</span>
-                            <span class="skill-tag">Documentation</span>
-                            <span class="skill-tag">Attention to Detail</span>
+                            <span class="skill-tag">AI & Machine Learning</span>
+                            <span class="skill-tag">Advanced Algorithms</span>
+                            <span class="skill-tag">Software Engineering</span>
+                            <span class="skill-tag">Cloud Computing</span>
+                            <span class="skill-tag">Data Science</span>
                         </div>
                     </div>
                 </div>
@@ -1039,15 +1243,71 @@
 
         </div>
 
+        <!-- Section Divider -->
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-icon">
+                <i class="fas fa-globe"></i>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- Global Career Aspirations Section -->
+        <div class="aspirations-section">
+            <h2 class="aspirations-title">Global Career Aspirations</h2>
+            <div class="aspirations-grid">
+
+                <!-- Luxembourg -->
+                <div class="aspiration-card">
+                    <div class="aspiration-icon">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <h3 class="aspiration-location">Luxembourg</h3>
+                    <p class="aspiration-description">
+                        Europe's premier financial technology hub. Seeking global enterprise cloud architecture roles
+                        in leading fintech and banking institutions.
+                    </p>
+                </div>
+
+                <!-- London -->
+                <div class="aspiration-card">
+                    <div class="aspiration-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="aspiration-location">London, UK</h3>
+                    <p class="aspiration-description">
+                        Global financial and technology center. Target cloud architecture leadership positions
+                        in Fortune 500 enterprises and innovative fintech.
+                    </p>
+                </div>
+
+                <!-- Sweden -->
+                <div class="aspiration-card">
+                    <div class="aspiration-icon">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <h3 class="aspiration-location">Sweden</h3>
+                    <p class="aspiration-description">
+                        Innovation and technology hub. Pursuing cloud architecture roles in Scandinavian tech leaders
+                        and sustainable technology companies.
+                    </p>
+                </div>
+
+            </div>
+            <div class="aspiration-note">
+                <i class="fas fa-briefcase"></i> Open to relocation opportunities in Europe's leading financial and technology hubs
+            </div>
+        </div>
+
         <!-- Transition Note -->
         <div class="transition-section">
             <h3><i class="fas fa-route"></i> From Science to Cloud Architecture</h3>
             <p>
                 The analytical mindset from Chemistry research and the logical foundation from
                 Mathematics created the perfect base for transitioning into
-                Cloud Architecture. Problem decomposition, systematic troubleshooting, and
+                Cloud Architecture and AI/ML expertise. Problem decomposition, systematic troubleshooting, and
                 documentation practices learned in science apply directly to designing
-                secure, scalable enterprise cloud solutions.
+                secure, scalable enterprise cloud solutions and leading AI implementation strategies.
             </p>
         </div>
     </section>
@@ -1104,6 +1364,11 @@
             observer.observe(card);
         });
 
+        // Observe aspiration cards
+        document.querySelectorAll('.aspiration-card').forEach(card => {
+            observer.observe(card);
+        });
+
         // 3D Tilt Effect for cards
         function addTiltEffect(element) {
             element.addEventListener('mousemove', (e) => {
@@ -1125,8 +1390,12 @@
             });
         }
 
-        // Apply tilt effect to cards
+        // Apply tilt effect to all cards
         document.querySelectorAll('.education-card').forEach(card => {
+            addTiltEffect(card);
+        });
+
+        document.querySelectorAll('.aspiration-card').forEach(card => {
             addTiltEffect(card);
         });
     </script>
