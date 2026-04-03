@@ -1263,7 +1263,7 @@ body {
       <div class="stat-label">Repositories</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number" data-target="14">0</div>
+      <div class="stat-number" data-target="14" data-suffix="+">0</div>
       <div class="stat-label">Enterprise Clients</div>
     </div>
   </div>
@@ -1369,11 +1369,13 @@ body {
         <span class="spotlight-tech-tag">Redis 7</span>
         <span class="spotlight-tech-tag">BullMQ</span>
         <span class="spotlight-tech-tag">Prisma ORM</span>
+        <span class="spotlight-tech-tag">Zod</span>
         <span class="spotlight-tech-tag">Tailwind CSS</span>
         <span class="spotlight-tech-tag">shadcn/ui</span>
         <span class="spotlight-tech-tag">Docker</span>
         <span class="spotlight-tech-tag">Helm</span>
         <span class="spotlight-tech-tag">GitHub Actions</span>
+        <span class="spotlight-tech-tag">Vercel</span>
       </div>
       <div class="spotlight-actions">
         <a href="https://finops.acc.ltd/dashboard" target="_blank" class="spotlight-btn primary">
@@ -1427,7 +1429,7 @@ body {
         <span class="spotlight-tech-tag">Systems Manager</span>
         <span class="spotlight-tech-tag">Prometheus</span>
         <span class="spotlight-tech-tag">Grafana</span>
-        <span class="spotlight-tech-tag">Python</span>
+        <span class="spotlight-tech-tag">Python (ML)</span>
         <span class="spotlight-tech-tag">Event-driven</span>
       </div>
       <div class="spotlight-actions">
@@ -1917,6 +1919,7 @@ function toggleMobileMenu() {
 // Counter Animation
 function animateCounter(element) {
   const target = parseInt(element.getAttribute('data-target'));
+  const suffix = element.getAttribute('data-suffix') || '';
   if (isNaN(target)) return;
 
   let current = 0;
@@ -1925,7 +1928,7 @@ function animateCounter(element) {
   const counter = setInterval(() => {
     current += increment;
     if (current >= target) {
-      element.textContent = target;
+      element.textContent = target + suffix;
       clearInterval(counter);
     } else {
       element.textContent = current;
